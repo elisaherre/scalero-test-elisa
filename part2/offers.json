@@ -1,0 +1,362 @@
+[
+  {
+    "offer_id": 101,
+    "merchant_name": "Lumen Fragrance",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Lumen+Fragrance+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "20% off Fragrance, Skin & Body Care + Free Shipping*",
+    "button_text": "Get Code",
+    "link": "https://harborperks.example/offers/101",
+    "offer_code": null,
+    "disclaimer_text": "Full-price items only; cannot be combined with other offers."
+  },
+  {
+    "offer_id": 202,
+    "merchant_name": "Brightline Mobile",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Brightline+Mobile+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Brightline+Mobile",
+    "promo_image_url": null,
+    "savings_statement": "Save 20% on the Premium Unlimited Plan",
+    "button_text": "Learn More",
+    "link": "https://harborperks.example/offers/202",
+    "offer_code": null,
+    "disclaimer_text": "Brightline {community_name} Discount Program: available to eligible employees with a qualifying service agreement. Discount applies to the monthly service charge only."
+  },
+  {
+    "offer_id": 505,
+    "merchant_name": "Keystone Equity",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Keystone+Equity+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Get Cash for Your Home Equity + Earn 25,000 HarborPoints",
+    "button_text": null,
+    "link": "https://harborperks.example/offers/505",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 104,
+    "merchant_name": "Stride Running",
+    "community_ids": [
+      412
+    ],
+    "logo_url": null,
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "15% off Running Shoes & Apparel",
+    "button_text": "Get Code",
+    "link": "https://harborperks.example/offers/104",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 301,
+    "merchant_name": "Harbor Dining Rewards",
+    "community_ids": [
+      412
+    ],
+    "logo_url": null,
+    "hero_image_url": null,
+    "promo_image_url": "https://placehold.co/1160x400/png?text=Harbor+Dining+Rewards",
+    "savings_statement": "Earn Points Every Time You Dine Out",
+    "button_text": "Learn More",
+    "link": "https://harborperks.example/offers/301",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 402,
+    "merchant_name": "Peak Outfitters",
+    "community_ids": [
+      977
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Peak+Outfitters+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "20% off Climbing Shoes",
+    "button_text": "Shop Now",
+    "link": "https://harborperks.example/offers/402",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 503,
+    "merchant_name": "Lingo Lab",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Lingo+Lab+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Free 7-Day Trial of Lingo Lab Kids",
+    "button_text": "Start Trial",
+    "link": "https://harborperks.example/offers/503",
+    "offer_code": null,
+    "disclaimer_text": "New subscribers only. Renews at the standard rate after 12 months."
+  },
+  {
+    "offer_id": 151,
+    "merchant_name": "Peak Outfitters",
+    "community_ids": [
+      977
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Peak+Outfitters+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Peak+Outfitters",
+    "promo_image_url": null,
+    "savings_statement": "Free Shipping on Tents",
+    "button_text": "Shop Now",
+    "link": "https://harborperks.example/offers/151",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 102,
+    "merchant_name": "Fieldwell Health",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Fieldwell+Health+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Join a Wellness Membership for $39/Month + Earn 3,000 HarborPoints",
+    "button_text": "Learn More",
+    "link": "https://harborperks.example/offers/102",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 203,
+    "merchant_name": "Clearview Windows",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Clearview+Windows+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Buy 2 Windows, Get the 3rd 60% Off*",
+    "button_text": "Save Now",
+    "link": "https://harborperks.example/offers/203",
+    "offer_code": null,
+    "disclaimer_text": "*Requires a minimum purchase of 3 windows or doors."
+  },
+  {
+    "offer_id": 105,
+    "merchant_name": "Cedar & Sage",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Cedar+&+Sage+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Cedar+&+Sage",
+    "promo_image_url": null,
+    "savings_statement": "25% off Linen Bedding Sets",
+    "button_text": "Shop Now",
+    "link": "https://harborperks.example/offers/105",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 206,
+    "merchant_name": "Pawsure Pet Insurance",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Pawsure+Pet+Insurance+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Pawsure+Pet+Insurance",
+    "promo_image_url": null,
+    "savings_statement": "Pet Insurance Plans From Less Than $1/Day*",
+    "button_text": "Learn More",
+    "link": "https://harborperks.example/offers/206",
+    "offer_code": null,
+    "disclaimer_text": "*Based on average new-policy premiums. Premiums vary by pet age, breed and location."
+  },
+  {
+    "offer_id": 501,
+    "merchant_name": "Mama \"Rosa's\" Kitchen",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Mama+\"Rosa's\"+Kitchen+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Two Pizzas for $20 Every Tuesday",
+    "button_text": "Order Now",
+    "link": "https://harborperks.example/offers/501",
+    "offer_code": "HARBOR20",
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 201,
+    "merchant_name": "Lingo Lab",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Lingo+Lab+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Lingo+Lab",
+    "promo_image_url": null,
+    "savings_statement": "25% off Personalized Language Learning",
+    "button_text": "Get Started",
+    "link": "https://harborperks.example/offers/201",
+    "offer_code": null,
+    "disclaimer_text": "New subscribers only. Renews at the standard rate after 12 months."
+  },
+  {
+    "offer_id": 302,
+    "merchant_name": "Harbor Travel",
+    "community_ids": [
+      977
+    ],
+    "logo_url": null,
+    "hero_image_url": null,
+    "promo_image_url": "https://placehold.co/1160x400/png?text=Harbor+Travel",
+    "savings_statement": "Members-Only Hotel Rates",
+    "button_text": "Book Now",
+    "link": "https://harborperks.example/offers/302",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 403,
+    "merchant_name": "Daily Greens",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Daily+Greens+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Free Welcome Kit With Your First Order",
+    "button_text": "Get Started",
+    "link": "https://harborperks.example/offers/403",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 504,
+    "merchant_name": "Northline Auto Care",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Northline+Auto+Care+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "$325 off Auto Protection Plans",
+    "button_text": "Get Started",
+    "link": "https://harborperks.example/offers/504",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 103,
+    "merchant_name": "Peak Outfitters",
+    "community_ids": [
+      977
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Peak+Outfitters+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "30% off Hiking Gear",
+    "button_text": "Shop Now",
+    "link": "https://harborperks.example/offers/103",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 204,
+    "merchant_name": "Harvest Box",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Harvest+Box+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Harvest+Box",
+    "promo_image_url": null,
+    "savings_statement": "55% off Your First Meal Kit + Earn 2,000 HarborPoints",
+    "button_text": "Get Started",
+    "link": "https://harborperks.example/offers/204",
+    "offer_code": "HARBOR55",
+    "disclaimer_text": "Shipping fee applies on all deliveries after the first box."
+  },
+  {
+    "offer_id": 106,
+    "merchant_name": "Brew Club",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Brew+Club+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "First Coffee Box Free",
+    "button_text": "Get Started",
+    "link": "https://harborperks.example/offers/106",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 207,
+    "merchant_name": "Roadready Club",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Roadready+Club+logo",
+    "hero_image_url": "https://placehold.co/450x300/png?text=Roadready+Club",
+    "promo_image_url": null,
+    "savings_statement": "Up to 50% off Roadside Assistance Membership",
+    "button_text": "Unlock Savings",
+    "link": "https://harborperks.example/offers/207",
+    "offer_code": null,
+    "disclaimer_text": ""
+  },
+  {
+    "offer_id": 401,
+    "merchant_name": "Glow Skincare",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Glow+Skincare+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "Buy One, Get One 50% off Serums",
+    "button_text": "Shop Now",
+    "link": "https://harborperks.example/offers/401",
+    "offer_code": null,
+    "disclaimer_text": "Offer valid for new customers only."
+  },
+  {
+    "offer_id": 502,
+    "merchant_name": "Tonewood Guitars",
+    "community_ids": [
+      412
+    ],
+    "logo_url": "https://placehold.co/250x120/png?text=Tonewood+Guitars+logo",
+    "hero_image_url": null,
+    "promo_image_url": null,
+    "savings_statement": "10% off Full-Price Guitars, Amps & More",
+    "button_text": "Get Code",
+    "link": "https://harborperks.example/offers/502",
+    "offer_code": null,
+    "disclaimer_text": "Cannot be combined with any other offers or public sales."
+  },
+  {
+    "offer_id": 150,
+    "merchant_name": "Homestead Warranty",
+    "community_ids": [
+      412
+    ],
+    "logo_url": null,
+    "hero_image_url": "https://placehold.co/450x300/png?text=Homestead+Warranty",
+    "promo_image_url": null,
+    "savings_statement": "50% off Select Home Warranty Plans",
+    "button_text": "Learn More",
+    "link": "https://harborperks.example/offers/150",
+    "offer_code": null,
+    "disclaimer_text": "Not available in CA or MA. Restrictions apply; see site for details."
+  }
+]

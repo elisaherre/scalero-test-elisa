@@ -1,0 +1,94 @@
+{
+  "header_links": [
+    {
+      "text": "{first_name}'s Perks",
+      "fallback_text": "Your Perks",
+      "url": "https://harborperks.example/my-perks"
+    },
+    {
+      "text": "Travel",
+      "url": "https://harborperks.example/category/travel"
+    },
+    {
+      "text": "Fall Favorites",
+      "url": "https://harborperks.example/pages/fall"
+    },
+    {
+      "text": "Save {estimated_annual_savings}/Year",
+      "url": "https://harborperks.example/pages/save-more"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "small-callout",
+      "heading": "New Perks",
+      "offer_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "max": 3
+    },
+    {
+      "type": "large-retargeting",
+      "heading": "This Is Worth Another Look",
+      "offer_ids": "customer.retargeting_offer_ids",
+      "max": 1
+    },
+    {
+      "type": "large",
+      "heading": "",
+      "offer_ids": [
+        150,
+        201,
+        202,
+        203,
+        204,
+        206,
+        207
+      ],
+      "max": 4
+    },
+    {
+      "type": "promo",
+      "heading": "",
+      "offer_ids": [
+        301
+      ],
+      "max": 1
+    },
+    {
+      "type": "small-callout",
+      "heading": "Trending Perks",
+      "offer_ids": [
+        401,
+        402,
+        403
+      ],
+      "max": 3
+    },
+    {
+      "type": "triple-small",
+      "heading": "More Perks for You",
+      "offer_ids": [
+        501,
+        502,
+        503,
+        504,
+        505
+      ],
+      "max": 6
+    },
+    {
+      "type": "promo",
+      "heading": "",
+      "offer_ids": [
+        302
+      ],
+      "max": 1
+    }
+  ]
+}

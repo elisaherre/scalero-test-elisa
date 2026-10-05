@@ -1,0 +1,1206 @@
+{% comment %}
+  Harbor Perks dynamic newsletter.
+
+  For this exercise, customer and offers are assumed to be available
+  as parsed data objects from the ESP.
+
+  The config below represents the provided config.json.
+  In a production ESP, catalog/customer data would come from the
+  platform's data source rather than being embedded in the template.
+{% endcomment %}
+
+{% capture config_json %}
+  {
+    {
+    "header_links": [
+      {
+        "text": "{first_name}'s Perks",
+        "fallback_text": "Your Perks",
+        "url": "https://harborperks.example/my-perks"
+      },
+      {
+        "text": "Travel",
+        "url": "https://harborperks.example/category/travel"
+      },
+      {
+        "text": "Fall Favorites",
+        "url": "https://harborperks.example/pages/fall"
+      },
+      {
+        "text": "Save {estimated_annual_savings}/Year",
+        "url": "https://harborperks.example/pages/save-more"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "small-callout",
+        "heading": "New Perks",
+        "offer_ids": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          106
+        ],
+        "max": 3
+      },
+      {
+        "type": "large-retargeting",
+        "heading": "This Is Worth Another Look",
+        "offer_ids": "customer.retargeting_offer_ids",
+        "max": 1
+      },
+      {
+        "type": "large",
+        "heading": "",
+        "offer_ids": [
+          150,
+          201,
+          202,
+          203,
+          204,
+          206,
+          207
+        ],
+        "max": 4
+      },
+      {
+        "type": "promo",
+        "heading": "",
+        "offer_ids": [
+          301
+        ],
+        "max": 1
+      },
+      {
+        "type": "small-callout",
+        "heading": "Trending Perks",
+        "offer_ids": [
+          401,
+          402,
+          403
+        ],
+        "max": 3
+      },
+      {
+        "type": "triple-small",
+        "heading": "More Perks for You",
+        "offer_ids": [
+          501,
+          502,
+          503,
+          504,
+          505
+        ],
+        "max": 6
+      },
+      {
+        "type": "promo",
+        "heading": "",
+        "offer_ids": [
+          302
+        ],
+        "max": 1
+      }
+    ]
+  }
+{% endcapture %}
+
+{% assign annual_savings = customer.estimated_annual_savings | round %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Harbor Perks - Shop smarter this week</title>
+<style>body{margin:0;padding:0}table,td,th{box-sizing:border-box}img{display:block}
+@media screen and (max-width:480px){.stack,.width--full{width:100%!important}.stack{display:block!important}.is-column{display:table-cell!important}.align--center{text-align:center!important}.align--center img{display:inline!important}.float--center{margin:0 auto!important}.padL--base{padding-left:20px!important}.padL--none{padding-left:0!important}.padB--base{padding-bottom:20px!important}.image-merchant-trio{width:120px!important}.column-divider-small{width:10px!important}}</style>
+</head>
+<body class="body" xml:lang="en">
+<!--
+  Harbor Perks weekly newsletter: STATIC version.
+  Every block below shows hard-coded sample content. Your job is to make it data-driven
+  using customer.json, offers.json and config.json (see the brief).
+-->
+<span style="color: transparent; display: none !important; font-size: 0px; line-height: 0px; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">Savings on the brands and experiences you're already shopping for.</span>
+<div style="display: none; max-height: 0px; overflow: hidden;">&#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &nbsp;</div>
+<table role="none" width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#E1E1E1" align="center">
+<table role="none" width="600" style="width:600px; min-width: 370px;" border="0" cellpadding="0" cellspacing="0" class="width--full">
+
+<!-- ===== HEADER: points + sign in + logo ===== -->
+<tr><td align="center" style="padding: 10px 10px 0 10px;">
+  <table role="none" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td align="right" style="padding: 8px 0;">
+    <table role="none" border="0" cellpadding="0" cellspacing="0"><tr>
+      <td style="padding-right: 20px;">
+        <p style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;margin:0">
+          <strong>{{ customer.points | number_with_commas }} Points</strong>
+        </p>
+    </td>
+      <td><a href="https://harborperks.example/sign-in" target="_blank" style="color:#254BD1;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;text-decoration:underline;text-underline-position:from-font">Sign In</a></td>
+    </tr></table>
+  </td></tr><tr><td bgcolor="#FFFFFF" align="center" style="padding: 30px 25px 25px 25px;">
+    <a href="https://harborperks.example" target="_blank"><img src="https://placehold.co/300x90/png?text=Harbor+Perks" alt="Harbor Perks" height="90" style="height: 90px;"></a>
+  </td></tr></table>
+</td></tr>
+
+<!-- ===== HEADER LINKS (4) ===== -->
+<tr>
+  <td style="padding: 0 10px 10px 10px;">
+    <table
+      role="none"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+      <tr>
+        <td
+          bgcolor="#FFFFFF"
+          align="center"
+          style="padding: 5px 5px 15px 5px;"
+        >
+          <table
+            role="none"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+
+              {% for link in config.header_links %}
+
+                {% assign link_text = link.text %}
+
+                {% if link.text contains "{first_name}" %}
+                  {% if customer.first_name != blank %}
+                    {% capture link_text %}{{ customer.first_name | escape }}'s Perks{% endcapture %}
+                  {% else %}
+                    {% assign link_text = link.fallback_text %}
+                  {% endif %}
+                {% endif %}
+
+                {% if link.text contains "{estimated_annual_savings}" %}
+                  {% if annual_savings > 0 %}
+                    {% capture link_text %}Save ${{ annual_savings | number_with_commas }}/Year{% endcapture %}
+                  {% else %}
+                    {% assign link_text = "" %}
+                  {% endif %}
+                {% endif %}
+
+                {% if link_text != blank %}
+                  <td align="center">
+                    <a
+                      href="{{ link.url | escape }}"
+                      target="_blank"
+                      style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:18px;text-decoration:underline;text-underline-position:from-font"
+                    >
+                      {{ link_text }}
+                    </a>
+                  </td>
+
+                  {% unless forloop.last %}
+                    <td
+                      width="28"
+                      class="column-divider-small"
+                    ></td>
+                  {% endunless %}
+                {% endif %}
+
+              {% endfor %}
+
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+{% assign used_offer_ids = "|" %}
+
+{% assign selected_offer_ids = "|" %}
+{% assign selected_count = 0 %}
+
+{% assign test_block = config.blocks[0] %}
+
+{% for offer_id in test_block.offer_ids %}
+
+  {% if selected_count < test_block.max %}
+
+    {% assign target_id = offer_id | append: "" %}
+    {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+    {% unless used_offer_ids contains id_token %}
+
+      {% for offer in offers %}
+
+        {% assign catalog_id = offer.offer_id | append: "" %}
+
+        {% if catalog_id == target_id %}
+
+          {% if offer.community_ids contains customer.community_id_current
+            and offer.logo_url != blank
+            and offer.savings_statement != blank
+            and offer.button_text != blank
+            and offer.link != blank
+          %}
+
+            {% capture selected_offer_ids %}{{ selected_offer_ids }}{{ target_id }}|{% endcapture %}
+            {% assign selected_count = selected_count | plus: 1 %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
+
+<!-- ===== BLOCK: small-callout (heading + one row of 3 cards with buttons) ===== -->
+{% if selected_count == 3 %}
+
+{% capture used_offer_ids %}{{ used_offer_ids }}{{ selected_offer_ids | remove_first: "|" }}{% endcapture %}
+<tr>
+  <td style="padding: 10px;">
+    <table
+      role="presentation"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+
+      {% if test_block.heading != blank %}
+        <tr>
+          <td align="center" style="padding-bottom: 10px;">
+            <h2 style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:700;line-height:30px;margin:0">
+              {{ test_block.heading | escape }}
+            </h2>
+          </td>
+        </tr>
+      {% endif %}
+
+      <tr>
+        <td style="padding-bottom:20px; border-bottom:1px solid #CCCCCC">
+
+          <table
+            role="presentation"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+          >
+            <tr>
+
+              {% assign rendered_count = 0 %}
+
+              {% for offer_id in test_block.offer_ids %}
+
+                {% assign target_id = offer_id | append: "" %}
+                {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+                {% if selected_offer_ids contains id_token %}
+
+                  {% for offer in offers %}
+
+                    {% assign catalog_id = offer.offer_id | append: "" %}
+
+                    {% if catalog_id == target_id %}
+
+                      {% if rendered_count > 0 %}
+                        <th
+                          width="20"
+                          height="20"
+                          class="stack"
+                        ></th>
+                      {% endif %}
+
+                      <th
+                        bgcolor="#FFFFFF"
+                        width="180"
+                        valign="top"
+                        style="border-radius:20px;padding:20px;text-align:left;"
+                        class="stack"
+                        align="left"
+                        role="presentation"
+                      >
+                        <table
+                          role="presentation"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                          width="100%"
+                        >
+                          <tr class="is-column image-merchant-trio valign--top">
+                            <td
+                              align="center"
+                              style="padding-bottom:20px;"
+                            >
+                              <a
+                                href="{{ offer.link | escape }}"
+                                target="_blank"
+                              >
+                                <img
+                                  src="{{ offer.logo_url | escape }}"
+                                  alt="{{ offer.merchant_name | escape }}"
+                                  width="125"
+                                  style="width:125px;"
+                                >
+                              </a>
+                            </td>
+                          </tr>
+
+                          <tr class="is-column valign--top padL--base">
+                            <td>
+                              <table
+                                role="presentation"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+                                <tr>
+                                  <td>
+                                    <p style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;margin:0;text-align:left">
+                                      <strong>
+                                        {{ offer.savings_statement | escape }}
+                                      </strong>
+                                    </p>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="padding-top:10px;text-align:left;">
+                                    <table
+                                      role="none"
+                                      border="0"
+                                      cellpadding="0"
+                                      cellspacing="0"
+                                    >
+                                      <tr>
+                                        <td
+                                          bgcolor="#254BD1"
+                                          style="border:1px solid #254BD1;border-radius:100px;mso-padding-alt:8px 20px;"
+                                        >
+                                          <a
+                                            href="{{ offer.link | escape }}"
+                                            target="_blank"
+                                            style="display:block;padding:8px 20px;color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;font-weight:400;font-size:16px;line-height:20px;text-decoration:none;"
+                                          >
+                                            {{ offer.button_text | escape }}
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </th>
+
+                      {% assign rendered_count = rendered_count | plus: 1 %}
+
+                    {% endif %}
+
+                  {% endfor %}
+
+                {% endif %}
+
+              {% endfor %}
+
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+    </table>
+  </td>
+</tr>
+
+{% endif %}
+
+{% assign retargeting_block = config.blocks[1] %}
+{% assign retargeting_offer_id = "" %}
+
+{% for offer_id in customer.retargeting_offer_ids limit: 100 %}
+
+  {% if retargeting_offer_id == blank %}
+
+    {% assign target_id = offer_id | append: "" %}
+    {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+    {% unless used_offer_ids contains id_token %}
+
+      {% for offer in offers %}
+
+        {% assign catalog_id = offer.offer_id | append: "" %}
+
+        {% if catalog_id == target_id %}
+
+          {% if offer.community_ids contains customer.community_id_current
+            and offer.hero_image_url != blank
+            and offer.savings_statement != blank
+            and offer.button_text != blank
+            and offer.link != blank
+          %}
+
+            {% assign retargeting_offer_id = target_id %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
+
+<!-- ===== BLOCK: large-retargeting (heading + large cards) ===== -->
+{% if retargeting_offer_id != blank %}
+
+  {% for offer in offers %}
+
+    {% assign catalog_id = offer.offer_id | append: "" %}
+
+    {% if catalog_id == retargeting_offer_id %}
+
+      {% capture id_token %}|{{ retargeting_offer_id }}|{% endcapture %}
+      {% capture used_offer_ids %}{{ used_offer_ids }}{{ retargeting_offer_id }}|{% endcapture %}
+
+      <tr>
+        <td style="padding: 0 10px;">
+          <table
+            role="none"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+          >
+
+            {% if retargeting_block.heading != blank %}
+              <tr>
+                <td align="center" style="padding-top: 10px;">
+                  <h2 style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:700;line-height:30px;margin:0">
+                    {{ retargeting_block.heading | escape }}
+                  </h2>
+                </td>
+              </tr>
+            {% endif %}
+
+            <tr>
+              <td style="padding:10px 0;">
+
+                <table
+                  role="none"
+                  border="0"
+                  cellpadding="0"
+                  cellspacing="0"
+                  width="100%"
+                >
+                  <tr>
+                    <td
+                      bgcolor="#FFFFFF"
+                      style="border-radius:20px;padding:20px;"
+                    >
+
+                      <table
+                        role="none"
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        width="100%"
+                      >
+                        <tr>
+
+                          <td
+                            width="50%"
+                            style="padding-left:10px;"
+                            class="stack align--center padL--none padB--base"
+                          >
+                            <a
+                              href="{{ offer.link | escape }}"
+                              target="_blank"
+                            >
+                              <img
+                                src="{{ offer.hero_image_url | escape }}"
+                                alt="{{ offer.merchant_name | escape }}"
+                                width="225"
+                                style="width:225px;"
+                              >
+                            </a>
+                          </td>
+
+                          <td
+                            width="50%"
+                            class="stack"
+                            role="presentation"
+                            align="left"
+                          >
+                            <table
+                              role="none"
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+                              <tr>
+                                <td
+                                  class="align--center"
+                                  style="text-align:left;"
+                                >
+                                  <p style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;line-height:24px;margin:0">
+                                    <strong>
+                                      {{ offer.savings_statement | escape }}
+                                    </strong>
+                                  </p>
+                                </td>
+                              </tr>
+
+                              {% if offer.offer_code != blank %}
+                                <tr>
+                                  <td style="padding-top:5px;text-align:left;">
+                                    <p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;margin:0">
+                                      Offer Code: {{ offer.offer_code | escape }}
+                                    </p>
+                                  </td>
+                                </tr>
+                              {% endif %}
+
+                              <tr>
+                                <td style="padding-top:10px;">
+                                  <table
+                                    role="none"
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    class="float--center"
+                                  >
+                                    <tr>
+                                      <td
+                                        bgcolor="#254BD1"
+                                        style="border:1px solid #254BD1;border-radius:100px;mso-padding-alt:8px 20px;"
+                                      >
+                                        <a
+                                          href="{{ offer.link | escape }}"
+                                          target="_blank"
+                                          style="display:block;padding:8px 20px;color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;font-weight:400;font-size:16px;line-height:20px;text-decoration:none;"
+                                        >
+                                          {{ offer.button_text | escape }}
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+
+                            </table>
+                          </td>
+
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+
+    {% endif %}
+
+  {% endfor %}
+
+{% endif %}
+
+{% assign large_block = config.blocks[2] %}
+{% assign large_offer_ids = "|" %}
+{% assign large_count = 0 %}
+
+{% for offer_id in large_block.offer_ids %}
+
+  {% if large_count < large_block.max %}
+
+    {% assign target_id = offer_id | append: "" %}
+    {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+    {% unless used_offer_ids contains id_token %}
+
+      {% for offer in offers %}
+
+        {% assign catalog_id = offer.offer_id | append: "" %}
+
+        {% if catalog_id == target_id %}
+
+          {% if offer.community_ids contains customer.community_id_current
+            and offer.hero_image_url != blank
+            and offer.savings_statement != blank
+            and offer.button_text != blank
+            and offer.link != blank
+          %}
+
+            {% capture large_offer_ids %}{{ large_offer_ids }}{{ target_id }}|{% endcapture %}
+            {% assign large_count = large_count | plus: 1 %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
+
+<!-- ===== BLOCK: large (optional heading + large cards; offer code line is optional) ===== -->
+{% if large_count > 0 %}
+
+<tr>
+  <td style="padding: 0 10px;">
+    <table
+      role="none"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+
+      {% if large_block.heading != blank %}
+        <tr>
+          <td align="center" style="padding-top:10px;">
+            <h2 style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:700;line-height:30px;margin:0">
+              {{ large_block.heading | escape }}
+            </h2>
+          </td>
+        </tr>
+      {% endif %}
+
+      {% for offer_id in large_block.offer_ids %}
+
+        {% assign target_id = offer_id | append: "" %}
+        {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+        {% if large_offer_ids contains id_token %}
+
+          {% for offer in offers %}
+
+            {% assign catalog_id = offer.offer_id | append: "" %}
+
+            {% if catalog_id == target_id %}
+
+              <tr>
+                <td style="padding:10px 0;">
+
+                  <table
+                    role="none"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="100%"
+                  >
+                    <tr>
+                      <td
+                        bgcolor="#FFFFFF"
+                        style="border-radius:20px;padding:20px;"
+                      >
+
+                        <table
+                          role="none"
+                          border="0"
+                          cellpadding="0"
+                          cellspacing="0"
+                          width="100%"
+                        >
+                          <tr>
+
+                            <th
+                              width="50%"
+                              style="padding-left:10px;"
+                              class="stack align--center padL--none padB--base"
+                            >
+                              <a
+                                href="{{ offer.link | escape }}"
+                                target="_blank"
+                              >
+                                <img
+                                  src="{{ offer.hero_image_url | escape }}"
+                                  alt="{{ offer.merchant_name | escape }}"
+                                  width="225"
+                                  style="width:225px;"
+                                >
+                              </a>
+                            </th>
+
+                            <th
+                              width="50%"
+                              class="stack"
+                              role="presentation"
+                              align="left"
+                            >
+                              <table
+                                role="none"
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                              >
+
+                                <tr>
+                                  <td
+                                    class="align--center"
+                                    style="text-align:left;"
+                                  >
+                                    <p style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;line-height:24px;margin:0">
+                                      <strong>
+                                        {{ offer.savings_statement | escape }}
+                                      </strong>
+                                    </p>
+                                  </td>
+                                </tr>
+
+                                {% if offer.offer_code != blank %}
+                                  <tr>
+                                    <td style="padding-top:5px;text-align:left;">
+                                      <p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;margin:0">
+                                        Offer Code: {{ offer.offer_code | escape }}
+                                      </p>
+                                    </td>
+                                  </tr>
+                                {% endif %}
+
+                                <tr>
+                                  <td style="padding-top:10px;">
+                                    <table
+                                      role="none"
+                                      border="0"
+                                      cellpadding="0"
+                                      cellspacing="0"
+                                      class="float--center"
+                                    >
+                                      <tr>
+                                        <td
+                                          bgcolor="#254BD1"
+                                          style="border:1px solid #254BD1;border-radius:100px;mso-padding-alt:8px 20px;"
+                                        >
+                                          <a
+                                            href="{{ offer.link | escape }}"
+                                            target="_blank"
+                                            style="display:block;padding:8px 20px;color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;font-weight:400;font-size:16px;line-height:20px;text-decoration:none;"
+                                          >
+                                            {{ offer.button_text | escape }}
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                              </table>
+                            </th>
+
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+            {% endif %}
+
+          {% endfor %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    </table>
+  </td>
+</tr>
+
+{% capture used_offer_ids %}{{ used_offer_ids }}{{ large_offer_ids | remove_first: "|" }}{% endcapture %}
+
+{% endif %}
+
+{% assign promo_block = config.blocks[3] %}
+{% assign promo_offer_id = "" %}
+
+{% for offer_id in promo_block.offer_ids %}
+
+  {% if promo_offer_id == blank %}
+
+    {% assign target_id = offer_id | append: "" %}
+    {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+    {% unless used_offer_ids contains id_token %}
+
+      {% for offer in offers %}
+
+        {% assign catalog_id = offer.offer_id | append: "" %}
+
+        {% if catalog_id == target_id %}
+
+          {% if offer.community_ids contains customer.community_id_current
+            and offer.promo_image_url != blank
+            and offer.link != blank
+          %}
+
+            {% assign promo_offer_id = target_id %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
+
+<!-- ===== BLOCK: promo (full-width image) ===== -->
+{% if promo_offer_id != blank %}
+
+  {% for offer in offers %}
+
+    {% assign catalog_id = offer.offer_id | append: "" %}
+
+    {% if catalog_id == promo_offer_id %}
+
+      <tr>
+        <td style="padding:10px;">
+          <a
+            href="{{ offer.link | escape }}"
+            target="_blank"
+          >
+            <img
+              src="{{ offer.promo_image_url | escape }}"
+              alt="{{ offer.merchant_name | escape }}"
+              width="580"
+              style="width:580px;"
+              class="width--full"
+            >
+          </a>
+        </td>
+      </tr>
+
+      {% capture used_offer_ids %}{{ used_offer_ids }}{{ promo_offer_id }}|{% endcapture %}
+
+    {% endif %}
+
+  {% endfor %}
+
+{% endif %}
+
+{% assign triple_block = config.blocks[5] %}
+{% assign triple_offer_ids = "|" %}
+{% assign triple_count = 0 %}
+
+{% for offer_id in triple_block.offer_ids %}
+
+  {% if triple_count < triple_block.max %}
+
+    {% assign target_id = offer_id | append: "" %}
+    {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+    {% unless used_offer_ids contains id_token %}
+
+      {% for offer in offers %}
+
+        {% assign catalog_id = offer.offer_id | append: "" %}
+
+        {% if catalog_id == target_id %}
+
+          {% if offer.community_ids contains customer.community_id_current
+            and offer.logo_url != blank
+            and offer.savings_statement != blank
+            and offer.button_text != blank
+            and offer.link != blank
+          %}
+
+            {% capture triple_offer_ids %}{{ triple_offer_ids }}{{ target_id }}|{% endcapture %}
+            {% assign triple_count = triple_count | plus: 1 %}
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    {% endunless %}
+
+  {% endif %}
+
+{% endfor %}
+
+<!-- ===== BLOCK: triple-small (optional heading + rows of 3 cards with text links) ===== -->
+{% if triple_count > 0 %}
+
+<tr>
+  <td style="padding:10px;">
+
+    <table
+      role="presentation"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+
+      {% if triple_block.heading != blank %}
+        <tr>
+          <td align="center" style="padding-bottom:10px;">
+            <h2 style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:700;line-height:30px;margin:0">
+              {{ triple_block.heading | escape }}
+            </h2>
+          </td>
+        </tr>
+      {% endif %}
+
+      <tr>
+        <td>
+
+          <table
+            role="presentation"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+          >
+
+            {% assign row_count = 0 %}
+
+            {% for offer_id in triple_block.offer_ids %}
+
+              {% assign target_id = offer_id | append: "" %}
+              {% capture id_token %}|{{ target_id }}|{% endcapture %}
+
+              {% if triple_offer_ids contains id_token %}
+
+                {% for offer in offers %}
+
+                  {% assign catalog_id = offer.offer_id | append: "" %}
+
+                  {% if catalog_id == target_id %}
+
+                    {% assign column_position = row_count | modulo: 3 %}
+
+                    {% if column_position == 0 %}
+                      <tr>
+                    {% else %}
+                      <th width="20" height="20" class="stack"></th>
+                    {% endif %}
+
+                    <th
+                      bgcolor="#FFFFFF"
+                      width="180"
+                      valign="top"
+                      style="border-radius:20px;padding:20px;text-align:left;"
+                      class="stack"
+                      align="left"
+                      role="presentation"
+                    >
+
+                      <table
+                        role="presentation"
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        width="100%"
+                      >
+
+                        <tr class="is-column image-merchant-trio valign--top">
+                          <td
+                            align="center"
+                            style="padding-bottom:20px;"
+                          >
+                            <a
+                              href="{{ offer.link | escape }}"
+                              target="_blank"
+                            >
+                              <img
+                                src="{{ offer.logo_url | escape }}"
+                                alt="{{ offer.merchant_name | escape }}"
+                                width="125"
+                                style="width:125px;"
+                              >
+                            </a>
+                          </td>
+                        </tr>
+
+                        <tr class="is-column valign--top padL--base">
+                          <td>
+
+                            <table
+                              role="presentation"
+                              border="0"
+                              cellpadding="0"
+                              cellspacing="0"
+                              width="100%"
+                            >
+
+                              <tr>
+                                <td>
+                                  <p style="color:#0B1126;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;margin:0;text-align:left">
+                                    <strong>
+                                      {{ offer.savings_statement | escape }}
+                                    </strong>
+                                  </p>
+                                </td>
+                              </tr>
+
+                              {% if offer.offer_code != blank %}
+                                <tr>
+                                  <td style="padding-top:5px;text-align:left;">
+                                    <p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:18px;margin:0">
+                                      Offer Code: {{ offer.offer_code | escape }}
+                                    </p>
+                                  </td>
+                                </tr>
+                              {% endif %}
+
+                              <tr>
+                                <td style="padding-top:10px;text-align:left;">
+                                  <a
+                                    href="{{ offer.link | escape }}"
+                                    target="_blank"
+                                    style="color:#254BD1;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:20px;text-decoration:underline;text-underline-position:from-font"
+                                  >
+                                    {{ offer.button_text | escape }}
+                                  </a>
+                                </td>
+                              </tr>
+
+                            </table>
+
+                          </td>
+                        </tr>
+
+                      </table>
+
+                    </th>
+
+                    {% assign row_count = row_count | plus: 1 %}
+                    {% assign row_position = row_count | modulo: 3 %}
+
+                    {% if row_position == 0 %}
+                      </tr>
+                    {% endif %}
+
+                  {% endif %}
+
+                {% endfor %}
+
+              {% endif %}
+
+            {% endfor %}
+
+            {% assign remaining_columns = row_count | modulo: 3 %}
+
+            {% if remaining_columns == 1 %}
+              <th width="20" height="20" class="stack"></th>
+              <th width="180" class="stack"></th>
+              <th width="20" height="20" class="stack"></th>
+              <th width="180" class="stack"></th>
+              </tr>
+            {% elsif remaining_columns == 2 %}
+              <th width="20" height="20" class="stack"></th>
+              <th width="180" class="stack"></th>
+              </tr>
+            {% endif %}
+
+          </table>
+
+        </td>
+      </tr>
+
+    </table>
+
+  </td>
+</tr>
+
+{% capture used_offer_ids %}{{ used_offer_ids }}{{ triple_offer_ids | remove_first: "|" }}{% endcapture %}
+
+{% endif %}
+
+<!-- ===== FOOTER: points note + one paragraph per disclaimer + legal ===== -->
+<tr><td style="padding: 10px;">
+  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr><td><p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:18px;margin:0">HarborPoints: 100 Points = $1 in credits. For the loyalty program terms, <a href="https://harborperks.example/points-terms" target="_blank" style="color:#5A5A5A;text-decoration:underline">click here</a>.</p></td></tr>
+{% assign seen_disclaimers = "||" %}
+{% assign rendered_ids = used_offer_ids | remove_first: "|" | split: "|" %}
+
+{% for rendered_id in rendered_ids %}
+
+  {% if rendered_id != blank %}
+
+    {% for offer in offers %}
+
+      {% assign catalog_id = offer.offer_id | append: "" %}
+
+      {% if catalog_id == rendered_id and offer.disclaimer_text != blank %}
+
+        {% assign disclaimer_text = offer.disclaimer_text
+          | replace: "{community_name}", customer.community_name
+        %}
+
+        {% capture disclaimer_token %}||{{ disclaimer_text }}||{% endcapture %}
+
+        {% unless seen_disclaimers contains disclaimer_token %}
+
+          <tr>
+            <td style="padding-top:15px;">
+              <p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:18px;margin:0">
+                {{ offer.merchant_name | escape }}:
+                {{ disclaimer_text | escape }}
+              </p>
+            </td>
+          </tr>
+
+          {% capture seen_disclaimers %}{{ seen_disclaimers }}{{ disclaimer_text }}||{% endcapture %}
+
+        {% endunless %}
+
+      {% endif %}
+
+    {% endfor %}
+
+  {% endif %}
+
+{% endfor %}
+<tr><td style="padding-top: 15px;">
+      <p style="color:#5A5A5A;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:18px;margin:0"><strong>All links in this email are personalized and intended solely for you.</strong><br>You received this email because of your affiliation with {{ customer.community_name | escape }}, which partnered with Harbor Perks to give you access to your discount program.<br><br>To change your email preferences or unsubscribe, <a href="https://harborperks.example/preferences" target="_blank" style="color:#5A5A5A;text-decoration:underline">click here</a>.<br><br>Harbor Perks, 100 Example Street, Suite 200, Chicago, IL 60601</p>
+    </td></tr>
+  </table>
+</td></tr>
+
+</table>
+</td></tr></table>
+</body>
+</html>
